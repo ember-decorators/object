@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  name: 'object'
+  name: '@ember-decorators/object'
 };
