@@ -40,7 +40,7 @@ import { readOnly as readOnlyModifier } from '@ember-decorators/object';
 import { module, test } from 'qunit';
 import hasEmberVersion from 'ember-test-helpers/has-ember-version';
 
-module('macros', function() {
+module('javascript | macros', function() {
 
   test('@alias', function(assert) {
     class Foo {

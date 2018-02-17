@@ -10,29 +10,17 @@ import { HAS_UNDERSCORE_ACTIONS } from 'ember-compatibility-helpers';
 
 import { componentModule } from '../helpers/modules';
 
-componentModule('@action', function() {
-
-  test('action decorator works with standard Ember Object model', function(assert) {
-    this.register('component:foo-bar', Component.extend({
-      @action
-      foo() {
-        assert.ok(true, 'called!');
-      }
-    }));
-    this.register('template:components/foo-bar', hbs`<button {{action 'foo'}}>Click Me!</button>`);
-
-    this.render(hbs`{{foo-bar}}`);
-
-    return click('button');
-  });
+componentModule('javascript | @action', function() {
 
   test('action decorator works with ES6 class', function(assert) {
-    this.register('component:foo-bar', class FooComponent extends Component {
+    class FooComponent extends Component {
       @action
       foo() {
         assert.ok(true, 'called!');
       }
-    });
+    }
+
+    this.register('component:foo-bar', FooComponent);
     this.register('template:components/foo-bar', hbs`<button {{action 'foo'}}>Click Me!</button>`);
 
     this.render(hbs`{{foo-bar}}`);

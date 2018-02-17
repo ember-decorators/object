@@ -31,7 +31,7 @@ import { HAS_UNDERSCORE_ACTIONS } from 'ember-compatibility-helpers';
  * ```
  */
 export function action(target, key, desc) {
-  assert('The @action decorator must be applied to functions', typeof desc.value === 'function');
+  assert('The @action decorator must be applied to functions', desc && typeof desc.value === 'function');
 
   collapseProto(target);
 

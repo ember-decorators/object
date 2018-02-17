@@ -17,6 +17,8 @@ npm-debug.log*
 yarn-error.log
 testem.log
 
+**/*-temp-typescript-test.ts
+
 # ember-try
 .node_modules.ember-try/
 bower.json.ember-try
