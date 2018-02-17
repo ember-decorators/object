@@ -1,6 +1,6 @@
 {
   "name": "@ember-decorators/object",
-  "version": "0.0.0",
+  "version": "2.0.0-beta.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -16,9 +16,7 @@
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
-    "test": "ember try:each",
-    "prepublishOnly": "ember ts:precompile",
-    "postpublish": "ember ts:clean"
+    "test": "ember try:each"
   },
   "dependencies": {
     "@ember-decorators/utils": "^2.0.0-beta.4",
