@@ -40,7 +40,7 @@ import { SUPPORTS_UNIQ_BY_COMPUTED } from 'ember-compatibility-helpers';
 
 function legacyMacro(fn) {
   return computedDecoratorWithRequiredParams(function(target, key, desc, params) {
-    if (desc.value !== undefined) {
+    if (desc !== undefined && desc.value !== undefined) {
       return fn(...params, desc.value);
     }
 
@@ -50,7 +50,7 @@ function legacyMacro(fn) {
 
 function legacyMacroWithRequiredMethod(fn) {
   return computedDecoratorWithRequiredParams(function(target, key, desc, params) {
-    let method = typeof desc.value === 'function' ? desc.value : params.pop();
+    let method =  desc !== undefined && typeof desc.value === 'function' ? desc.value : params.pop();
 
     assert(`The @${fn.name} decorator must be used to decorate a method`, typeof method === 'function');
 

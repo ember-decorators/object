@@ -6,7 +6,7 @@ import { alias } from '@ember-decorators/object/computed';
 
 import { SUPPORTS_NEW_COMPUTED } from 'ember-compatibility-helpers';
 
-module('@computed', function() {
+module('javascript | @computed', function() {
 
   test('it works', function(assert) {
     assert.expect(2);
@@ -188,9 +188,9 @@ module('@computed', function() {
       () => {
         class Foo {
           @computed
+          @computed('foo')
           get fullName() {}
 
-          @computed
           set fullName(name) {}
         }
 
