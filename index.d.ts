@@ -62,6 +62,11 @@ export const action: MethodDecorator;
  * @param {...String} propertyNames - List of property keys this computed is dependent on
  */
 export function computed(...propertyNames: string[]): MethodDecorator;
+export function computed(
+  target: any,
+  key: any,
+  descriptor: PropertyDescriptor
+): PropertyDescriptor;
 
 /**
  * Decorator that modifies a computed property to be read only.
