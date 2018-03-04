@@ -196,7 +196,7 @@ export function equal(dependentKey: string, value: any): PropertyDecorator;
  */
 export function filter<T>(
   dependentKey: string,
-  callback: (item: T, index: number, array: T[]) => boolean
+  callback?: (item: T, index: number, array: T[]) => boolean
 ): PropertyDecorator;
 /**
  * Decorator that wraps [Ember.computed.filterBy](http://emberjs.com/api/classes/Ember.computed.html#method_filterBy)
@@ -372,7 +372,7 @@ export function lte(dependentKey: string, value: Number): PropertyDecorator;
  */
 export function map<T, U>(
   dependentKey: string,
-  callback: (item: T, index: number) => U
+  callback?: (item: T, index: number) => U
 ): PropertyDecorator;
 /**
  * Decorator that wraps [Ember.computed.mapBy](http://emberjs.com/api/classes/Ember.computed.html#method_mapBy)
