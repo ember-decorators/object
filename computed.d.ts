@@ -718,7 +718,7 @@ export function setDiff(
  */
 export function sort<T>(
   dependentKey: string,
-  sortDefinition: string[] | ((a: T, b: T) => number)
+  sortDefinition: string | ((a: T, b: T) => number)
 ): PropertyDecorator;
 /**
  * Decorator that wraps [Ember.computed.sum](http://emberjs.com/api/classes/Ember.computed.html#method_sum)
