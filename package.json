@@ -19,7 +19,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "@ember-decorators/utils": "^2.0.0-beta.4",
+    "@ember-decorators/utils": "^2.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-compatibility-helpers": "^0.1.3"
   },
