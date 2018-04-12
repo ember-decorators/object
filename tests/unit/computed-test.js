@@ -1,10 +1,10 @@
 import { module, test } from 'ember-qunit';
-import { get, set, setProperties } from '@ember/object';
+import EmberObject, { get, set, setProperties } from '@ember/object';
 
 import { computed, readOnly } from '@ember-decorators/object';
 import { alias } from '@ember-decorators/object/computed';
 
-import { SUPPORTS_NEW_COMPUTED } from 'ember-compatibility-helpers';
+import { SUPPORTS_NEW_COMPUTED, HAS_NATIVE_COMPUTED_GETTERS } from 'ember-compatibility-helpers';
 
 module('javascript | @computed', function() {
 
@@ -199,6 +199,26 @@ module('javascript | @computed', function() {
       /ES6 property getters\/setters only need to be decorated once, 'fullName' was decorated on both the getter and the setter/
     );
   });
+
+  if (HAS_NATIVE_COMPUTED_GETTERS) {
+    test('Native computed getters work with decorators', function(assert) {
+      class Foo extends EmberObject {
+        constructor() {
+          super(...arguments);
+          this.first = 'rob';
+          this.last = 'jackson';
+        }
+
+        @computed('first', 'last')
+        get fullName() {
+          return `${this.first} ${this.last}`;
+        }
+      }
+
+      let obj = Foo.create();
+      assert.strictEqual(get(obj, 'fullName'), obj.fullName, 'ES5 getter equals equivalent get()');
+    });
+  }
 
   module('@readOnly', function() {
 
